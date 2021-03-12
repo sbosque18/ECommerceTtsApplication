@@ -45,11 +45,11 @@ public class User implements UserDetails {
 //    @Email(message = "Please provide a valid email")
 //    @NotEmpty(message = "Please provide an email")
 //    private String email;
-    @Length(min = 3, message = "your username must have more then 3 letters")
-    @Length(max = 15, message = "Your username cannot have more than 15 characters")
-    @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
+//    @Length(min = 3, message = "your username must have more then 3 letters")
+//    @Length(max = 15, message = "Your username cannot have more than 15 characters")
+//    @Pattern(regexp = "[^\\s]+", message = "Your username cannot contain spaces")
     private String username;
-    @Length(min = 5, message = "Your password needs to be more than 5 characters")
+//    @Length(min = 5, message = "Your password needs to be more than 5 characters")
     private String password;
 //    @Length(message = "Cant leave empty")
 //    private String firstName;

@@ -43,13 +43,15 @@ public class UserService implements UserDetailsService {
     public void updateCart(Map<Product, Integer> cart) {
         User user = getLoggedInUser();
         user.setCart(cart);
-//        saveExisting(user);
+        saveExisting(user);
     }
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = findByUsername(username);
-        if (user == null) throw new UsernameNotFoundException("User not Found");
+        if (user == null) {
+            throw new UsernameNotFoundException("User not Found");
+        }
         return user;
     }
 }

@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
+@ControllerAdvice
 public class CartController {
     @Autowired
     ProductService productService;

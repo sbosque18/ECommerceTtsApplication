@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:replace="fragments/fragments :: head">
+    <head>
+        <meta charset="UTF-8">
+        <title>Payment</title>
+    </head>
 <body>
 <form action='/charge' method='POST' id='checkout-form'>
     <input type='hidden' th:value='${amount}' name='amount' />
@@ -13,8 +14,8 @@
             src='https://checkout.stripe.com/checkout.js'
             class='stripe-button'
             th:attr='data-key=${stripePublicKey},
-         data-amount=${amount},
-         data-currency=${currency}'
+             data-amount=${amount},
+             data-currency=${currency}'
             data-name='Baeldung'
             data-description='Spring course checkout'
             data-image
@@ -23,5 +24,6 @@
             data-zip-code='false'>
     </script>
 </form>
+<footer th:replace="fragments/fragments :: footer"></footer>
 </body>
 </html>
