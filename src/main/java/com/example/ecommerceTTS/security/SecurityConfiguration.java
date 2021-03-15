@@ -28,19 +28,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/").permitAll()
-                .antMatchers("/signin").permitAll()
-                .antMatchers("/about").permitAll()
                 .antMatchers("/cart").authenticated()
-                .antMatchers().hasAuthority("USER").anyRequest()
-                .authenticated().and().csrf().disable().formLogin()
-                .loginPage("/signin").failureUrl("/signin?error=true")
-                .defaultSuccessUrl("/")
-                .loginProcessingUrl("/signin")
+                .and().formLogin().loginPage("/signin")
+                .loginProcessingUrl("/login")
                 .and().logout()
                 .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
-                .logoutSuccessUrl("/")
-                .and().exceptionHandling();
-        http.headers().frameOptions().disable();
+                .logoutSuccessUrl("/");
     }
 }
